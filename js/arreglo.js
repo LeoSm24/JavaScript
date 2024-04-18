@@ -158,8 +158,6 @@ items.forEach(function(item, index) {
 
 console.log("Total del carrito: Bs" + totalCarrito); // Muestra el total del carrito
 
-
-
 let numeros = [4,2,6,1,8,3,10];
 numeros.sort((a,b)=> a-b);
 console.log(numeros);

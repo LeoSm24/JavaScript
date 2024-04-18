@@ -1,43 +1,73 @@
-// Array de nombres
-let nombresDisponibles = ["Juan", "Leo", "Zahir", "Jefferson", "Samuel", "Erika", "Daniela", "Maria", "Pedro", "Laura"];
-
-// Función para seleccionar un nombre aleatorio y eliminarlo del array de nombres disponibles
-function seleccionarNombreAleatorio() {
-    const indice = Math.floor(Math.random() * nombresDisponibles.length);
-    const nombreSeleccionado = nombresDisponibles.splice(indice, 1)[0];
-    return nombreSeleccionado;
+function notarandom() {
+    return Math.floor(Math.random() * 81) + 20; // Genera un número entre 2 y 10
 }
 
-// Generar un array con 10 elementos donde el nombre es aleatorio y la nota es aleatoria entre 20 y 100
-let estudiantes = Array.from({ length: 10 }, () => ({
-    nombre: seleccionarNombreAleatorio(),
-    nota: Math.floor(Math.random() * (100 - 20 + 1)) + 20
-}));
+// Array de objetos con nombres y notas inicializadas en 0
+const Item = [
+    { nombre: 'Juan', nota: 0 },
+    { nombre: 'Andres', nota: 0 },
+    { nombre: 'Julio', nota: 0 },
+    { nombre: 'Arturo', nota: 0 },
+    { nombre: 'Andrea', nota: 0 },
+    { nombre: 'Ying', nota: 0 },
+    { nombre: 'Mariel', nota: 0 },
+    { nombre: 'Diana', nota: 0 },
+    { nombre: 'Angela', nota: 0 },
+    { nombre: 'Leo', nota: 0 }
+];
 
-// Mostrar el array generado
-console.log("Estudiantes:");
-console.log(estudiantes);
-
-// Encontrar el estudiante con la nota mayor y menor
-let estudianteMayorNota = estudiantes.reduce((estudianteAnterior, estudianteActual) => {
-    return estudianteAnterior.nota > estudianteActual.nota ? estudianteAnterior : estudianteActual;
+// Generar las notas aleatorias para cada estudiante en el array Item
+Item.forEach(estudiante => {
+    estudiante.nota = notarandom();
 });
 
-let estudianteMenorNota = estudiantes.reduce((estudianteAnterior, estudianteActual) => {
-    return estudianteAnterior.nota < estudianteActual.nota ? estudianteAnterior : estudianteActual;
-});
+// Mostrar el array actualizado con nombres y notas aleatorias
+console.log(Item);
 
-// Calcular el promedio de los estudiantes con mayor y menor nota
-let promedioMayorNota = estudianteMayorNota.nota;
-let promedioMenorNota = estudianteMenorNota.nota;
+// Calcular la nota mayor, menor y promedio
+const notas = Item.map(estudiante => estudiante.nota);
+const notaMayor = Math.max(...notas);
+const notaMenor = Math.min(...notas);
+const promedioNotas = notas.reduce((total, nota) => total + nota, 0) / notas.length;
 
-// Asignar el nombre del estudiante con la mayor y menor nota
-estudianteMayorNota = `${estudianteMayorNota.nombre} (nota: ${estudianteMayorNota.nota})`;
-estudianteMenorNota = `${estudianteMenorNota.nombre} (nota: ${estudianteMenorNota.nota})`;
+// Encontrar al estudiante con la nota mayor y menor
+const estudianteMayorNota = Item.find(estudiante => estudiante.nota === notaMayor);
+const estudianteMenorNota = Item.find(estudiante => estudiante.nota === notaMenor);
 
-console.log("Estudiante con la nota mayor:");
-console.log(estudianteMayorNota);
-console.log("Estudiante con la nota menor:");
-console.log(estudianteMenorNota);
-console.log("Promedio del estudiante con mayor nota:", promedioMayorNota);
-console.log("Promedio del estudiante con menor nota:", promedioMenorNota);
+// Mostrar la nota mayor, menor y promedio junto con los estudiantes correspondientes
+console.log(`El estudiante con la mayor nota (${notaMayor}) es: ${estudianteMayorNota.nombre}`);
+console.log(`El estudiante con la menor nota (${notaMenor}) es: ${estudianteMenorNota.nombre}`);
+console.log("Promedio de notas:", promedioNotas);
+
+// Clasificar a los estudiantes según sus notas
+// const clasificacion = Item.map(estudiante => {
+//     let clasif;
+//     switch(true) {
+//         case (estudiante.nota >= 2 && estudiante.nota < 5):
+//             clasif = 'Insuficiente';
+//             break;
+//         case (estudiante.nota >= 5 && estudiante.nota < 7):
+//             clasif = 'Suficiente';
+//             break;
+//         case (estudiante.nota >= 7 && estudiante.nota < 9):
+//             clasif = 'Bien';
+//             break;
+//         case (estudiante.nota === 9):
+//             clasif = 'Notable';
+//             break;
+//         default:
+//             clasif = 'Sobresaliente';
+//     }
+//     return { nombre: estudiante.nombre, nota: estudiante.nota, clasificacion: clasif };
+// });
+// // Mostrar la clasificación de los estudiantes
+// console.log("Clasificación de los estudiantes:");
+// console.log(clasificacion);
+
+
+
+
+
+
+
+
