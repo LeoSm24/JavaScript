@@ -24,7 +24,7 @@
 // console.log(nombresAleatorios);
 
 
-const NELEMENTOS = 5;
+const NELEMENTOS = 10;
 
 
 let nombres =['Juan', 'María', 'José', 'Ana', 'Luis', 'Laura', 'Carlos', 'Sandra', 'Diego', 'Gabriela', 'Daniel', 'Andrea', 'Roberto', 'Patricia', 'Jorge', 'Natalia', 'Miguel', 'Alejandra', 'Fernando', 'Adriana'];
