@@ -1,0 +1,13 @@
+div.content {
+    border: 1px solid black;
+    opacity: 0.25;
+    text-align: center;
+    color: #000;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+div.content.highlight {
+    border: 1px solid red;
+    opacity: 1;
+}
