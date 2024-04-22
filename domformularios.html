@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios con DOM</title>
+</head>
+<body>
+  <button
+  onClick="toogleForm('content_first')">First</button>
+  <button
+  onClick="toogleForm('content_second')">Second</button>
+  <button
+  onClick="toogleForm('content_third')">Third</button>
+  
+
+  
+    <div class="content" id="content_first" hidden>
+    <form action="nombre1">
+      <label for="text">Nombre1</label>
+      <input type="text">
+      <button type="submit">Enviar</button>
+    </form>
+    </div><!-- #content_first -->
+
+
+    <br>
+    <div class="content" id="content_second" hidden>
+      <form action="nombre2">
+        <label for="text">Nombre2</label>
+        <input type="text">
+        <button type="submit">Enviar</button>
+      </form>
+    </div><!-- #content_second -->
+    <br>
+    <div class="content" id="content_third" hidden>
+      <form action="nombre3">
+        <label for="text">Nombre3</label>
+        <input type="text">
+        <button type="submit">Enviar</button>
+      </form>
+</div>
+
+<script>
+  function toogleForm(formID){
+    var forElements = document.getElementById(formID);
+    forElements.hidden = !forElements.hidden;
+  }
+</script>
+</body>
+</html>
