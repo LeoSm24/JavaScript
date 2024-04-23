@@ -1,0 +1,22 @@
+/* Estilos CSS adicionales */
+        #listaEstudiantes table {
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        #listaEstudiantes th,
+        #listaEstudiantes td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        #listaEstudiantes th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+        }
+
+        #listaEstudiantes tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
